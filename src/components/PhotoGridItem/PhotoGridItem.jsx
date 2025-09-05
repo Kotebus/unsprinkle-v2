@@ -4,44 +4,65 @@ import styled from 'styled-components';
 const PhotoGridItem = ({ id, src, alt, tags }) => {
   return (
     <article>
-      <Anchor href={`/photos/${id}`}>
-        <Image src={src} />
-      </Anchor>
-      <Tags>
-        {tags.map((tag) => (
-          <Tag key={tag}>{tag}</Tag>
-        ))}
-      </Tags>
+        <Anchor href={`/photos/${id}`}>
+            <picture>
+                <source
+                    type="image/avif"
+                    srcSet={`
+                      ${src}.avif 1x,
+                      ${src}@2x.avif 2x,
+                      ${src}@3x.avif 3x
+                    `}
+                />
+                <source
+                    type="image/jpg"
+                    srcSet={`
+                        ${src}.jpg 1x,
+                        ${src}.jpg 2x,
+                        ${src}.jpg 3x
+                    `}
+                />
+                <img
+                    alt={alt}
+                    src={`${src}.jpg`}
+                />
+            </picture>
+        </Anchor>
+        <Tags>
+            {tags.map((tag) => (
+                <Tag key={tag}>{tag}</Tag>
+            ))}
+        </Tags>
     </article>
   );
 };
 
 const Anchor = styled.a`
-  text-decoration: none;
-  color: inherit;
-  outline-offset: 4px;
+    text-decoration: none;
+    color: inherit;
+    outline-offset: 4px;
 `;
 
 const Image = styled.img`
-  display: block;
-  width: 100%;
-  height: 300px;
-  border-radius: 2px;
-  margin-bottom: 8px;
+    display: block;
+    width: 100%;
+    height: 300px;
+    border-radius: 2px;
+    margin-bottom: 8px;
 `;
 
 const Tags = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
 `;
 
 const Tag = styled.li`
-  padding: 4px 8px;
-  background: var(--color-gray-300);
-  font-size: 0.875rem;
-  font-weight: 475;
-  color: var(--color-gray-800);
+    padding: 4px 8px;
+    background: var(--color-gray-300);
+    font-size: 0.875rem;
+    font-weight: 475;
+    color: var(--color-gray-800);
 `;
 
 export default PhotoGridItem;
