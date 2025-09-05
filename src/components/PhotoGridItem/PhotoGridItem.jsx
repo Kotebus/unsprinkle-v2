@@ -1,32 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import Picture from "../Picture/index.js";
 
 const PhotoGridItem = ({ id, src, alt, tags }) => {
   return (
     <article>
         <Anchor href={`/photos/${id}`}>
-            <picture>
-                <source
-                    type="image/avif"
-                    srcSet={`
-                      ${src}.avif 1x,
-                      ${src}@2x.avif 2x,
-                      ${src}@3x.avif 3x
-                    `}
-                />
-                <source
-                    type="image/jpg"
-                    srcSet={`
-                        ${src}.jpg 1x,
-                        ${src}.jpg 2x,
-                        ${src}.jpg 3x
-                    `}
-                />
-                <img
-                    alt={alt}
-                    src={`${src}.jpg`}
-                />
-            </picture>
+            <Picture src={src} alt={alt} imgTag={Image} />
         </Anchor>
         <Tags>
             {tags.map((tag) => (
@@ -46,7 +26,7 @@ const Anchor = styled.a`
 const Image = styled.img`
     display: block;
     width: 100%;
-    height: 300px;
+    object-fit: cover;
     border-radius: 2px;
     margin-bottom: 8px;
 `;

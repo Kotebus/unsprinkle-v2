@@ -1,13 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
+import Picture from "../Picture/index.js";
+
+const HERO_IMG_SRC = '/images/hero-img';
 
 const Hero = () => {
-  return (
-    <Wrapper>
-      <HeroImage src="/images/hero-img.jpg" />
-      <Swoop src="/swoop.svg" />
-    </Wrapper>
-  );
+    return (
+        <Wrapper>
+            <Picture src={HERO_IMG_SRC} alt={'Beautiful cat'} imgTag={HeroImage}/>
+            <Swoop src="/swoop.svg" aria-label={''}/>
+        </Wrapper>
+    );
 };
 
 const Wrapper = styled.section`
