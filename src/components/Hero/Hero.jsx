@@ -8,7 +8,7 @@ const Hero = () => {
     return (
         <Wrapper>
             <Picture src={HERO_IMG_SRC} alt={'Beautiful cat'} imgTag={HeroImage}/>
-            <Swoop src="/swoop.svg" aria-label={''}/>
+            <Swoop src="/swoop.svg" aria-hidden="true" alt={''}/>
         </Wrapper>
     );
 };
@@ -25,7 +25,6 @@ const Wrapper = styled.section`
 
 const HeroImage = styled.img`
   display: block;
-  width: 500px;
   height: 500px;
   max-height: 100%;
 `;
