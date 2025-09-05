@@ -38,6 +38,11 @@ const Tags = styled.ul`
 `;
 
 const Tag = styled.li`
+    line-height: 1rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
     padding: 4px 8px;
     background: var(--color-gray-300);
     font-size: 0.875rem;
