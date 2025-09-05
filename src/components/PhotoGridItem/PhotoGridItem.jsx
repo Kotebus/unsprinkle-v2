@@ -24,9 +24,10 @@ const Anchor = styled.a`
 `;
 
 const Image = styled.img`
+    object-fit: cover;
     display: block;
     width: 100%;
-    object-fit: cover;
+    height: 300px;
     border-radius: 2px;
     margin-bottom: 8px;
 `;
